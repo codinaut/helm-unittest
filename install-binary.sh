@@ -66,7 +66,7 @@ verifySupported() {
 # getDownloadURL checks the latest available version.
 getDownloadURL() {
   local version=$(git describe --tags --exact-match 2>/dev/null)
-  DOWNLOAD_URL = "https://github.com/$PROJECT_GH/archive/$version.tar.gz"
+  DOWNLOAD_URL="https://github.com/$PROJECT_GH/archive/$version.tar.gz"
 }
 
 # downloadFile downloads the latest binary package and also the checksum
