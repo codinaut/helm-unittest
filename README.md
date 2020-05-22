@@ -27,7 +27,7 @@ If you are ready for writing tests, check the [DOCUMENT](./DOCUMENT.md) for the 
 ## Install
 
 ```
-$ helm plugin install https://github.com/lrills/helm-unittest
+$ helm plugin install https://github.com/DataDog/helm-unittest
 ```
 
 It will install the latest version of binary into helm plugin directory.
@@ -159,7 +159,7 @@ Issues and PRs are welcome!
 Before start developing this plugin, you must have [go](https://golang.org/doc/install) and [dep](https://github.com/golang/dep#installation) installed, and run:
 
 ```
-git clone git@github.com:lrills/helm-unittest.git
+git clone git@github.com:DataDog/helm-unittest.git
 cd helm-unittest
 dep ensure
 ```

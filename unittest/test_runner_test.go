@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/bradleyjkemp/cupaloy"
-	. "github.com/lrills/helm-unittest/unittest"
+	. "github.com/DataDog/helm-unittest/unittest"
 	"github.com/stretchr/testify/assert"
 )
 

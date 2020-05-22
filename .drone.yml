@@ -7,7 +7,7 @@ platform:
 
 workspace:
   base: /go
-  path: src/github.com/lrills/helm-unittest/
+  path: src/github.com/DataDog/helm-unittest/
 
 steps:
   - name: build
@@ -31,7 +31,7 @@ steps:
         - sha256
     when:
       instance:
-      - drone-publish.rancher.io
+      - drone-publish.DataDog.io
       ref:
       - refs/head/master
       - refs/tags/*

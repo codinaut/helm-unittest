@@ -3,9 +3,9 @@ package validators_test
 import (
 	"testing"
 
-	"github.com/lrills/helm-unittest/unittest/common"
-	"github.com/lrills/helm-unittest/unittest/snapshot"
-	. "github.com/lrills/helm-unittest/unittest/validators"
+	"github.com/DataDog/helm-unittest/unittest/common"
+	"github.com/DataDog/helm-unittest/unittest/snapshot"
+	. "github.com/DataDog/helm-unittest/unittest/validators"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

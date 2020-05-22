@@ -7,7 +7,7 @@ HAS_DEP := $(shell command -v dep;)
 VERSION := $(shell sed -n -e 's/version:[ "]*\([^"]*\).*/\1/p' plugin.yaml)
 DIST := $(CURDIR)/_dist
 LDFLAGS := "-X main.version=${VERSION} -extldflags '-static'"
-DOCKER ?= "irills/helm-unittest"
+DOCKER ?= "DataDog/helm-unittest"
 
 .PHONY: install
 install: bootstrap build
