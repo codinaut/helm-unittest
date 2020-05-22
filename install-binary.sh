@@ -65,23 +65,14 @@ verifySupported() {
 
 # getDownloadURL checks the latest available version.
 getDownloadURL() {
-  # Use the GitHub API to find the latest version for this project.
-  local latest_url="https://api.github.com/repos/$PROJECT_GH/releases/latest"
   local version=$(git describe --tags --exact-match 2>/dev/null)
-  if [ -n "$version" ]; then
-    url="https://api.github.com/repos/$PROJECT_GH/releases/tags/$version"
-  fi
-  if type "curl" >/dev/null 2>&1; then
-    DOWNLOAD_URL=$(curl -s $latest_url | grep $OS | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
-  elif type "wget" >/dev/null 2>&1; then
-    DOWNLOAD_URL=$(wget -q -O - $latest_url | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
-  fi
+  DOWNLOAD_URL = "https://github.com/$PROJECT_GH/archive/$version.tar.gz"
 }
 
 # downloadFile downloads the latest binary package and also the checksum
 # for that binary.
 downloadFile() {
-  PLUGIN_TMP_FILE="/tmp/${PROJECT_NAME}.tgz"
+  PLUGIN_TMP_FILE="/tmp/${PROJECT_NAME}.tar.gz"
   echo "Downloading $DOWNLOAD_URL"
   if type "curl" >/dev/null 2>&1; then
     curl -L "$DOWNLOAD_URL" -o "$PLUGIN_TMP_FILE"
