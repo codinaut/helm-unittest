@@ -3,7 +3,6 @@
 
 HELM_PLUGINS ?= $(shell helm env | grep "HELM_PLUGINS" | awk -F"=" '{print $2;}' | awk -F\" '{print $2;}')
 HELM_PLUGIN_DIR ?= $(HELM_PLUGINS)/helm-unittest
-HAS_DEP := $(shell command -v dep;)
 VERSION := $(shell sed -n -e 's/version:[ "]*\([^"]*\).*/\1/p' plugin.yaml)
 DIST := $(CURDIR)/_dist
 LDFLAGS := "-X main.version=${VERSION} -extldflags '-static'"
@@ -35,10 +34,7 @@ dist:
 
 .PHONY: bootstrap
 bootstrap:
-ifndef HAS_DEP
-	curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-endif
-	dep ensure
+	go mod download
 
 dockerimage:
 	docker build -t $(DOCKER):$(VERSION) .
