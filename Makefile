@@ -1,8 +1,8 @@
 
 # borrowed from https://github.com/technosophos/helm-template
 
-HELM_HOME ?= $(shell helm home)
-HELM_PLUGIN_DIR ?= $(HELM_HOME)/plugins/helm-unittest
+HELM_PLUGINS ?= $(shell helm env | grep "HELM_PLUGINS" | awk -F"=" '{print $2;}' | awk -F\" '{print $2;}')
+HELM_PLUGIN_DIR ?= $(HELM_PLUGINS)/helm-unittest
 HAS_DEP := $(shell command -v dep;)
 VERSION := $(shell sed -n -e 's/version:[ "]*\([^"]*\).*/\1/p' plugin.yaml)
 DIST := $(CURDIR)/_dist
